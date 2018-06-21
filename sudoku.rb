@@ -14,7 +14,7 @@ class SudokuGame
     @board = board
   end
 
-  def retrieve_pos_from_ui
+  def get_pos
     p = nil
     until p && legal_illegibility_of_p?(p)
       puts "Please enter a position on the board (e.g., '3,4')"
@@ -51,7 +51,8 @@ class SudokuGame
   end
 
   def process_parameters
-    pos_to_val(retrieve_pos_from_ui, retrieve_value_from_ui)
+    board.render
+    pos_to_val(get_pos, retrieve_value_from_ui)
   end
 
   def pos_to_val(p, v)
